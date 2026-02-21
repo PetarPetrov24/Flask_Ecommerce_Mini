@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register page</title>
+</head>
+<body>
+    <div class="register-outer-scope-credentials">
+        <h1>Register</h1>
+        
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="register-username-label">
+                {{ form.username.label}}
+            </div>
+
+            <div class="regiser-username-input">
+                {{ form.username}}
+            </div>
+
+            <div class="register-password-label">
+                {{ form.password.label}}
+            </div>
+
+            <div class="register-password-input">
+                {{ form.password}}
+            </div>
+
+            <div class="register-btn-scope">
+                {{ form.submit(class="register-btn")}}
+            </div>
+        </form>
+    </div>
+</body>
+</html>

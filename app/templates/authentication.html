@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title%}Login Page{% endblock %}
+
+{% block content %}
+    <div class="login-outer-scope">
+        <h1>Login</h1>
+        <form method="POST">
+            <div class="login-credentials">
+                <div class="username-label">
+                    {{form.username.label}}
+                </div>
+
+                <div class="username-input">
+                    {{form.username(class="username-input-field")}}
+                </div>
+
+                <div class="password-label">
+                    {{form.password.label}}
+                </div>
+
+                <div class="password-input">
+                    {{form.password(class="password-input-field")}}
+                </div>
+
+                <div class="btn-login-outer-scope">
+                    {{form.submit(class="btn-login-submit")}}
+                    <div class="register-outer-scope">
+                        <a href="{{ url_for('register')}}">No account? Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock%}

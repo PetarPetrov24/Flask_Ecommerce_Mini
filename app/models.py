@@ -22,7 +22,7 @@ class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    status = db.Column(db.Boolean, default='pending')
+    status = db.Column(db.Boolean, default=False)
     total_price = db.Column(db.Float, nullable=False)
 
     items = db.relationship('OrderItem', backref='order', lazy=True)
