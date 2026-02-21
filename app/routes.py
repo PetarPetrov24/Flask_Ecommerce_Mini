@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, session, flash, abort
-from flask_login import current_user, login_required
-from .models import Product, User
+from flask_login import current_user, login_required, login_user, logout_user
+from .models import Product, User, Order
 from .forms import LoginForm, RegisterForm
 from datetime import datetime
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -47,28 +47,38 @@ def register_app(app):
         return redirect(url_for("shop"))
 
     @app.route("/login", methods=["GET", "POST"])
-    def authentication():
+    def login():
         form = LoginForm()
         if form.validate_on_submit():
-            username = request.form["username"] 
-            password = request.form["password"]
-            user = User.query.filter(username=username).first()
-            if user and check_password_hash(user.password_hash, password):
+            username = form.username.data
+            password = form.password.data
+            user = User.query.filter_by(username=username).first()
+            if user and check_password_hash(user.password, password):
                 login_user(user)
+
+                if getattr(user, "is_admin", False):
+                    return redirect(url_for("admin"))
+                
                 return redirect(url_for("shop"))
-            flash("Invalid credentials")
+            flash("Invalid credentials", "danger")
 
         return render_template("authentication.html", form=form)
+
+    @app.route("/logout")
+    @login_required
+    def logout():
+        logout_user()
+        return redirect(url_for("shop"))
     
     @app.route("/register", methods=["GET", "POST"])
     def register():
         form = RegisterForm()
         if form.validate_on_submit():
-            username = request.form.get("username")
-            password = request.form.get("password")
-            confirm_password = request.form.get("confirm_passowrd")
+            username = form.username.data
+            password = form.password.data
+            confirm_password = form.confirm_password.data
 
-            if password != confirm_passowrd:
+            if password != confirm_password:
                 flash("Passwords do not match")
                 return redirect(url_for("register"))
 
@@ -91,7 +101,7 @@ def register_app(app):
         products = Product.query.all()
         total_users = User.query.count()
         total_orders = Order.query.count()
-        completed_sales_count = Order.query.filter_by(status=True).count
+        completed_sales_count = Order.query.filter_by(status=True).count()
         pending_orders = Order.query.filter_by(status=False).count()
         total_sales = db.session.query(db.func.sum(Order.total_price)).scalar() or 0
         return render_template(

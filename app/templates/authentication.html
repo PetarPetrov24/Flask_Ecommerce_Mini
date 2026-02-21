@@ -1,11 +1,9 @@
-{% extends "base.html" %}
-
-{% block title%}Login Page{% endblock %}
-
 {% block content %}
     <div class="login-outer-scope">
         <h1>Login</h1>
         <form method="POST">
+            {{ form.hidden_tag() }}
+
             <div class="login-credentials">
                 <div class="username-label">
                     {{form.username.label}}
@@ -32,5 +30,24 @@
                 </div>
             </div>
         </form>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% for field, errors in form.errors.items() %}
+            {% for error in errors %}
+                <div class="flash danger">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        {% endfor %}
     </div>
 {% endblock%}

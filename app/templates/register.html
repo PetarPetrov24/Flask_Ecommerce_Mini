@@ -28,10 +28,37 @@
                 {{ form.password}}
             </div>
 
+            <div class="register-confirm-passoword-label">
+                {{ form.confirm_password.label}}
+            </div>
+
+            <div class="register-confirm-passowrd">
+                {{ form.confirm_password }}
+            </div>
+
             <div class="register-btn-scope">
                 {{ form.submit(class="register-btn")}}
             </div>
         </form>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% for field, errors in form.errors.items() %}
+            {% for error in errors %}
+                <div class="flash danger">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        {% endfor %}
     </div>
 </body>
 </html>
