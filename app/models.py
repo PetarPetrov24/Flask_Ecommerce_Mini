@@ -16,6 +16,7 @@ class Product(db.Model):
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text)
     price = db.Column(db.Numeric(10, 2), nullable=False)
+    image_filename = db.Column(db.String(200), nullable=True)
     stock = db.Column(db.Integer, default=0)
 
 class Order(db.Model):
