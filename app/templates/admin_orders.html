@@ -16,9 +16,20 @@
     <tr>
         <td>{{ order.id }}</td>
         <td>{{ order.user.username }}</td>
-        <td>${{ order.total }}</td>
+        <td>${{ order.total_price }}</td>
         <td>{{ order.status }}</td>
-        <td>{{ order.date.strftime("%Y-%m-%d") }}</td>
+        <td>{{ order.created_at.strftime("%Y-%m-%d") }}</td>
+        <td>
+            {% if not order.status %}
+                <form action="{{ url_for('admin_order_complete', order_id=order.id) }}" method="POST" style="display:inline;">
+                    <button type="submit">✅ Complete</button>
+                </form>
+            {% endif %}
+
+            <form action="{{ url_for('admin_order_delete', order_id=order.id) }}" method="POST" style="display:inline;">
+                <button type="submit">❌ Delete</button>
+            </form>
+        </td>
     </tr>
     {% endfor %}
 </table>

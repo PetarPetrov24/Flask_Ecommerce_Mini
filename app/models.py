@@ -26,13 +26,13 @@ class Order(db.Model):
     status = db.Column(db.Boolean, default=False)
     total_price = db.Column(db.Float, nullable=False)
 
-    items = db.relationship('OrderItem', backref='order', lazy=True)
+    items = db.relationship('OrderItem', backref='order', lazy=True, cascade='all, delete-orphan')
 
 class OrderItem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     order_id = db.Column(db.Integer, db.ForeignKey('order.id'), nullable=False)
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
-    price_at_purchase = db.Column(db.DateTime, nullable=False,)
+    price_at_purchase = db.Column(db.Float, nullable=False,)
 
     product = db.relationship('Product')

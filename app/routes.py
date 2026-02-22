@@ -2,7 +2,7 @@ import os
 from werkzeug.utils import secure_filename
 from flask import render_template, request, redirect, url_for, session, flash, abort
 from flask_login import current_user, login_required, login_user, logout_user
-from .models import Product, User, Order
+from .models import Product, User, Order, OrderItem
 from .forms import LoginForm, RegisterForm, AddProduct, RemoveFromCartForm
 from datetime import datetime
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -123,28 +123,35 @@ def register_app(app):
         session.modified = True  # mark session as changed
         return redirect(url_for('cart'))
 
-    @app.route("/checkout", methods=["POST"])
-    @login_required
+    @app.route("/checkout", methods=["GET", "POST"])
     def checkout():
-        cart = session.get("cart", {})
-
+        cart = session.get('cart', {})
         if not cart:
-            flash("Cart is empty!", "danger")
-            return redirect(url_for('shop'))
-        total_price = 0
+            flash("Your cart is empty!", "warning")
+            return redirect(url_for("cart"))
 
-        for product_id, quantity in cart.items():
-            product = Product.query.get(int(product_id))
+        total = 0
+        for pid, qty in cart.items():
+            product = Product.query.get(pid)
             if product:
-                total_price += product.price * quantity
+                total += product.price * qty
 
-        order = Order(user_id=current_user.id, total_price=total_price, status=True)
+        # Create Order
+        order = Order(user_id=current_user.id, total_price=total)
         db.session.add(order)
         db.session.commit()
 
-        session["cart"] = {}
+        # Create OrderItems
+        for pid, qty in cart.items():
+            product = Product.query.get(pid)
+            if product:
+                order_item = OrderItem(order_id=order.id, product_id=product.id, quantity=qty, price_at_purchase=product.price)
+                db.session.add(order_item)
 
-        flash("Order placed successfully!", "success")
+        db.session.commit()
+
+        # Clear cart
+        session.pop('cart', None)
         return redirect(url_for("shop"))
     
     @app.route("/api/products")
@@ -241,5 +248,25 @@ def register_app(app):
 
         orders = Order.query.all() 
         return render_template("admin_orders.html", orders=orders)
+
+    @app.route("/admin/order/<int:order_id>/complete", methods=["POST"])
+    @login_required
+    def admin_order_complete(order_id):
+        if not current_user.is_admin:
+            abort(403)
+        order = Order.query.get_or_404(order_id)
+        order.status = True  # mark as completed
+        db.session.commit()
+        return redirect(url_for("admin_orders"))
+
+    @app.route("/admin/order/<int:order_id>/delete", methods=["POST"])
+    @login_required
+    def admin_order_delete(order_id):
+        if not current_user.is_admin:
+            abort(403)
+        order = Order.query.get_or_404(order_id)
+        db.session.delete(order)
+        db.session.commit()
+        return redirect(url_for("admin_orders"))
 
     return app
