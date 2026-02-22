@@ -1,0 +1,40 @@
+.register-outer-scope-credentials{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-username-label, .register-password-label,
+.register-confirm-passoword-label, .register-header {
+    color: rgb(26, 102, 26);
+    font-weight: bold;
+}
+
+
+.register-username-label, .register-password-label,
+.register-confirm-passoword-label {
+    padding: 1em 0;
+    text-align: center;
+}
+
+.register-btn-scope {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0;
+}
+
+.register-btn-scope {
+    border-radius: 0.4em;
+}
+
+.register-btn {
+    padding: 0.5em 2em;
+}
+
+.register-btn:hover {
+    background-color: rgb(26, 102, 26);
+    color: white;
+}
+

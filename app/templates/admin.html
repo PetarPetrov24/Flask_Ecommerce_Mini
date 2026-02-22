@@ -2,20 +2,41 @@
 
 {% block title %} Admin Page {% endblock%}
 
-{% block content%}
-<h1>Admin Dashboard</h1>
 
-<!-- Metrics -->
-<div class="admin-cards">
-    <div class="cards">
-        <ul>
-            <li>Total Users: {{ total_users }}</li>
-            <li>Total Orders: {{ total_orders }}</li>
-            <li>Total Sales Count: {{ completed_sales_count }}</li>
-            <li>Pending Orders: {{ pending_orders }}</li>
-            <li>Total Sales: {{ total_sales }}</li>
-        </ul>
-    </div>
+{% block content%}
+<div class="dashboard-stats">
+    <h1>Admin Dashboard</h1>
+    
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Statistic</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Total Users</td>
+                <td>{{ total_users }}</td>
+            </tr>
+            <tr>
+                <td>Total Orders</td>
+                <td>{{ total_orders }}</td>
+            </tr>
+            <tr>
+                <td>Completed Sales Count</td>
+                <td>{{ completed_sales_count }}</td>
+            </tr>
+            <tr>
+                <td>Pending Orders</td>
+                <td>{{ pending_orders }}</td>
+            </tr>
+            <tr>
+                <td>Total Sales</td>
+                <td>{{ total_sales }}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 <!-- Users Table -->

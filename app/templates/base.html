@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Tuckify{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css')}}">
 </head>
 <body>
     <div class="outer-ecommerce-scope">
         <div class="authenticated-user-scope">
             {% if current_user.is_authenticated %}
-                <p class="authenticated-user">User: {{current_user.username}}</p>
+                <p class="authenticated-user">User: {{current_user.username | capitalize }}</p>
             {% else %}
                 <p class="unauthenticated-user">Anonymous</p>
             {% endif %}
@@ -34,7 +37,10 @@
             </div>
         </div>
         
-        <h1>Tuckify</h1>
+        <div class="base-header">
+            <h1>Tuckify</h1>
+        </div>
+        
 
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
@@ -51,10 +57,13 @@
         {% block content%}
 
         {% endblock %}
-
-        <footer>
-            <p>&copy; {{ current_year }} My Ecommerce App</p>
-        </footer>
+        
+        <div class="outer-footer-scope">
+            <footer>
+                <p>&copy; {{ current_year }} My Ecommerce App</p>
+            </footer>
+        </div>
     </div>
+    
 </body>
 </html>

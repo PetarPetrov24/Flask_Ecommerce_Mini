@@ -1,0 +1,79 @@
+body {
+    background-color: #d9efe0; 
+    font-family: Arial, sans-serif; 
+    margin: 0;
+    padding: 0;
+
+}
+
+.outer-ecommerce-scope .authenticated-user,
+.outer-ecommerce-scope .unauthenticated-user {
+    padding: 0;
+    margin: 0;
+    background-color: rgb(197, 250, 220);
+    color: rgb(53, 143, 92);
+    padding-left: 0.5em;
+}
+
+.outer-nav-bar-scope {
+    background-color: rgb(57, 143, 94);
+    display: flex;
+    justify-content: center;
+    padding: 1em 0;
+}
+
+.inner-nav-bar-scope ul {
+    display: flex;               
+    gap: 6em;                                   
+}
+
+.inner-nav-bar-scope li {
+    list-style: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);;
+    padding: 0.5em 2em;
+    border-radius: 0.5em;
+    transition: background-color 0.3s ease;
+}
+
+.inner-nav-bar-scope li:hover {
+    background-color: rgb(209, 228, 217);
+}
+
+.inner-nav-bar-scope a {
+    text-decoration: none;
+    color: rgb(122, 230, 122);
+    font-weight: bold;
+}
+
+.base-header h1 {
+    text-align: center;
+    color: rgb(122, 230, 122);
+}
+
+.outer-footer-scope {
+    padding-top: 2em;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1em 0;
+    border-top: 1px solid gray;
+    text-align: center;
+    background-color: #2C2F33;
+    color: white;
+    z-index: 100;
+}
+
+.pagination {
+    position: fixed;
+    bottom: 80px;
+    left: 0;
+    width: 100%;
+    padding: 1em 0;
+    text-align: center;
+    color: rgb(122, 230, 122);
+    z-index: 102;
+}

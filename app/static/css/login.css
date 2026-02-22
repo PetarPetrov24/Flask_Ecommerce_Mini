@@ -1,0 +1,43 @@
+.login-outer-scope {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-outer-scope h1, .username-label, .password-label {
+    color: rgb(26, 102, 26);
+    font-weight: bold;
+}
+
+.username-label, .password-label {
+    padding: 1em 0;
+    text-align: center;
+}
+
+.btn-login-outer-scope {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0;
+}
+
+.btn-login-submit {
+    padding: 0.5em 2em;
+    border-radius: 0.4em;
+}
+
+.btn-login-submit:hover {
+    background-color: rgb(26, 102, 26);
+    color: white;
+}
+
+.register-outer-scope {
+    padding: 1em 0;
+    font-weight: bold;
+}
+
+.register-link-btn {
+    text-decoration: none;
+    color: rgb(26, 102, 26);
+}
+
