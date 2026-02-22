@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="admin-add-product-outer-scope">
+    <div class="admin-add-product-header">
+        <h1>Add New Product</h1>
+    </div>
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+
+        <div class="admin-add-product-name-label">
+            {{ form.name.label }}
+        </div>
+
+        <div class="admin-add-product-name-input">
+            {{ form.name(size=40) }}
+        </div>
+        
+        <div class="admin-add-product-description-label">
+            {{ form.description.label }}
+        </div>
+
+        <div class="admin-add-product-description-input">
+            {{ form.description(size=60) }}
+        </div>
+            
+        <div class="admin-add-product-price-label">
+            {{ form.price.label }}
+        </div>
+
+        <div class="admin-add-product-price-input">
+            {{ form.price() }}
+        </div>
+
+        <div class="admin-add-product-stock-label">
+            {{ form.stock.label }}
+        </div>
+
+        <div class="admin-add-product-stock-input">
+            {{ form.stock() }}
+        </div>
+            
+        <div class="admin-add-product-image-label">
+            <label>Product Image</label>
+        </div>
+
+        <div class="file-upload-wrapper">
+            {{ form.image(id="fileInput", style="display:none;") }}
+            <button type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
+            <span id="fileName">No file chosen</span>
+        </div>
+            
+        <div class="admin-add-product-btn-scope">
+            {{ form.submit(class="add-product-btn") }}
+        </div>
+    </form>
+    {% if form.price.errors %}
+        <ul class="errors">
+            {% for error in form.price.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+<script src="{{ url_for('static', filename='js/file-upload.js') }}"></script>
+
+{% endblock %}

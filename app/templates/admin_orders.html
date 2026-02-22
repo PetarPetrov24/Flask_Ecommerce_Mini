@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Orders Table -->
+<h2>Recent Orders</h2>
+<table>
+    <tr>
+        <th>Order ID</th>
+        <th>User</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Actions</th>
+    </tr>
+    {% for order in orders %}
+    <tr>
+        <td>{{ order.id }}</td>
+        <td>{{ order.user.username }}</td>
+        <td>${{ order.total }}</td>
+        <td>{{ order.status }}</td>
+        <td>{{ order.date.strftime("%Y-%m-%d") }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
