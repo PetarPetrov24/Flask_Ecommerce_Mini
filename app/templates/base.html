@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add-new-product.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/shop.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css')}}">
 </head>
 <body>
     <div class="outer-ecommerce-scope">
@@ -23,6 +26,16 @@
             <div class="inner-nav-bar-scope">
                 <ul>
                     <li><a href="{{ url_for('shop') }}">Shop</a></li>
+
+                    <li>
+                        <a href="{{ url_for('cart') }}">
+                            🛒 Cart
+                            {% set cart = session.get('cart', {}) %}
+                                {% if cart %}
+                                    ({{ cart.values() | sum }}) 
+                                {% endif %}
+                        </a>
+                    </li>
 
                     {% if current_user.is_authenticated %}
                         <li><a href="{{ url_for('logout') }}">Logout</a></li>

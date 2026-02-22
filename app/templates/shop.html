@@ -10,6 +10,13 @@
                     <div class="product-card">
                         <h3>{{product.name}}</h3>
                         <p>{{product.description}}</p>
+                        {% if product.image_filename %}
+                        <img src="{{ url_for('static', filename='images/products/' + product.image_filename) }}" 
+                             alt="{{ product.name }}" class="product-image">
+                        {% else %}
+                        <img src="{{ url_for('static', filename='images/products/default.png') }}" 
+                             alt="No image" class="product-image">
+                        {% endif %}
                         <p>Price: ${{product.price}}</p>
                         <form method="POST" action="{{ url_for('add_to_cart', product_id=product.id )}}">
                             <button type="submit">Add to Cart</button>
