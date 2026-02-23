@@ -6,7 +6,7 @@
 
 # Pages & Structure📄
 
-# Intro 🕶️
+# 🕶️ Intro 
 
 • Navigation bar with user nickname display
 
@@ -22,7 +22,7 @@
 
 • Add-to-cart functionality
 
-# Cart
+# 🛒 Cart
 
 • Displays added products
 
@@ -50,7 +50,7 @@
 
 • Create products
 
-# Features ⚙️
+# ⚙️ Features 
 
 • Admin and User authentication system
 
@@ -66,7 +66,7 @@
 
 • Template rendering with Jinja2
 
-# Security 🔐
+# 🔐 Security 
 
 • Password hashing via Werkzeug Security
 
@@ -76,7 +76,7 @@
 
 • Authentication required for admin actions
 
-# Tech Stack 🧱
+# 🧱 Tech Stack 
 
 • Languages: Python ,JavaScript
 <br>
@@ -89,7 +89,7 @@
 • Libraries & Tools: Flask-Login, Flask-WTF, WTForms, Werkzeug Security, Werkzeug Utils, Os
 <br>
 
-# Project Goals 🎯
+# 🎯 Project Goals 
 
 • Strengthen my understanding of Flask architecture
 
@@ -101,7 +101,7 @@
 
 • Build admin dashboard functionality
 
-# Future Improvements🔮
+# 🔮 Future Improvements
 
 • Pagination for products
 
@@ -115,7 +115,7 @@
 
 • Adding payment methods - Paypal/Visa/Mastercard
 
-# Author👨‍💻
+# 👨‍💻 Author
 
 • Created as a personal learning project focused on mastering Flask and building a near real-world e-commerce application.
 
