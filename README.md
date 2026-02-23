@@ -36,7 +36,7 @@
 
 • Link to registration page
 
-👑 Admin Panel
+# 👑 Admin Panel
 
 • View all users
 
