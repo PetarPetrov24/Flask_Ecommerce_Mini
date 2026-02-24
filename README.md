@@ -1,44 +1,27 @@
-Flask Ecommerce Mini – Tuckify
+# Flask Ecommerce Mini – Tuckify
 
-Tuckify is a small e-commerce web app built with Flask and connected to a PostgreSQL database. It works like a simple online shop where users can browse products, add them to a cart, and complete a checkout. I built this project to better understand how real e-commerce applications work and what features are essential behind the scenes.
+Tuckify is a small e-commerce web application built with Flask and connected to a PostgreSQL database. It functions as a simple online store where users can browse products, add them to a shopping cart, and complete the checkout process. This project was created to better understand how e-commerce applications work and to practice building essential features from scratch.
 
-Pages & Structure
+## Features
 
-The app has a clean design with a green accent theme, a navigation bar that shows the logged-in user’s nickname, and a simple footer.
+The application includes a user and administrator authentication system implemented with Flask-Login. It uses a session-based cart system to store selected products and includes checkout logic that creates orders and order items in the database. Administrator routes are protected to prevent unauthorized access and allow full product and order management. The project also includes CSRF protection with Flask-WTF, password hashing using Werkzeug, and secure configuration management through environment variables stored in a .env file.
 
-The Shop page displays all available products with their name, price, and image, and allows users to add items to their cart.
+## Pages
 
-The Cart page shows everything the user has added, calculates the total price automatically, and provides a checkout option to place the order.
+The Shop page displays all available products along with their names, prices, and images, and allows users to add items to their cart. The Cart page shows all selected products, calculates the total price automatically, and provides an option to complete the checkout process. The Login page allows users to authenticate and provides access to registration. The Admin Panel allows administrators to view registered users, manage orders, mark orders as completed, delete orders, and create or update products.
 
-The Login page handles user authentication and includes a link to register a new account.
+## Tech Stack
 
-There’s also an Admin Panel where administrators can view users, manage orders (mark them as completed or delete them), and create or manage products.
+The backend of the application is built with Python and Flask. The frontend is developed using HTML, CSS, and JavaScript. PostgreSQL is used as the database system. The project also relies on Flask-Login, Flask-WTF, WTForms, and Werkzeug to handle authentication, form validation, and security.
 
-Features
+## Project Goals
 
-The application includes a full authentication system for both users and admins using Flask-Login. Admin routes are protected to prevent unauthorized access. The cart works using session storage, and the checkout process creates orders and order items in the database. Templates are rendered with Jinja2 to dynamically display content.
+The main goal of this project was to strengthen my understanding of Flask architecture and application structure. It was also designed to help me practice authentication and authorization, understand how shopping carts and checkout systems function, and build a working administrative dashboard similar to those used in real online stores.
 
-Security
+## Future Improvements
 
-Security was an important part of this project. Passwords are hashed using Werkzeug Security, sensitive settings are stored in a .env file, CSRF protection is implemented with Flask-WTF, and admin actions require proper authentication.
+Future improvements may include adding product pagination, implementing unit tests with pytest, creating API endpoints, preparing the application for production deployment, and integrating online payment methods such as PayPal, Visa, or Mastercard.
 
-Tech Stack
+## Author
 
-The backend is built with Python and Flask, while the frontend uses HTML, CSS, and a bit of JavaScript. PostgreSQL handles the database. The project also uses Flask-Login, Flask-WTF, WTForms, and Werkzeug.
-
-Project Goals
-
-The goal of this project was to get more comfortable with Flask’s structure, practice building authentication and authorization systems, understand how shopping carts and checkout flows work, and create a functional admin dashboard similar to what real online stores use.
-
-Future Improvements
-
-In the future, I’d like to add product pagination, write unit tests with pytest, create API endpoints, prepare the app for production deployment, and integrate real payment methods such as PayPal, Visa, or Mastercard.
-
-Author
-
-This project was created as a personal learning experience to practice Flask and build something close to a real-world e-commerce application.
-
-
-
-
- 
+This project was created as a personal learning experience focused on improving my Flask development skills and building a practical, real-world style e-commerce application.
