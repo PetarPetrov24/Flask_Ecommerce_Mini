@@ -4,7 +4,7 @@
 <p>It displays various products on the main shop page, allows users to add items to a cart, and complete the checkout process.</p>
 <p>The goal of this project is to understand how an e-commerce application works and what core features are required to build one.</p>
 
-# Pages & Structure📄
+# Pages & Structure
 
 # Intro 
 
