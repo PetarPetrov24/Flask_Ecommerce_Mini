@@ -1,4 +1,4 @@
-# 🛒 Flask Ecommerce Mini - Tuckify
+# Flask Ecommerce Mini - Tuckify
 
 <p>This application represents a small e-commerce shop called Tuckify, built with Flask and connected to a PostgreSQL database.</p>
 <p>It displays various products on the main shop page, allows users to add items to a cart, and complete the checkout process.</p>
@@ -6,7 +6,7 @@
 
 # Pages & Structure📄
 
-# 🕶️ Intro 
+# Intro 
 
 • Navigation bar with user nickname display
 
@@ -14,7 +14,7 @@
 
 • Styled UI with a green accent theme
 
-# 🛍️ Shop
+# Shop
 
 • Displays all available products
 
@@ -22,7 +22,7 @@
 
 • Add-to-cart functionality
 
-# 🛒 Cart
+# Cart
 
 • Displays added products
 
@@ -30,13 +30,13 @@
 
 • Checkout button to finalize purchase
 
-# 🔐 Login
+# Login
 
 • User authentication form
 
 • Link to registration page
 
-# 👑 Admin Panel
+# Admin Panel
 
 • View all users
 
@@ -50,7 +50,7 @@
 
 • Create products
 
-# ⚙️ Features 
+# Features 
 
 • Admin and User authentication system
 
@@ -66,7 +66,7 @@
 
 • Template rendering with Jinja2
 
-# 🔐 Security 
+# Security 
 
 • Password hashing via Werkzeug Security
 
@@ -76,7 +76,7 @@
 
 • Authentication required for admin actions
 
-# 🧱 Tech Stack 
+# Tech Stack 
 
 • Languages: Python ,JavaScript
 <br>
@@ -89,7 +89,7 @@
 • Libraries & Tools: Flask-Login, Flask-WTF, WTForms, Werkzeug Security, Werkzeug Utils, Os
 <br>
 
-# 🎯 Project Goals 
+# Project Goals 
 
 • Strengthen my understanding of Flask architecture
 
@@ -101,7 +101,7 @@
 
 • Build admin dashboard functionality
 
-# 🔮 Future Improvements
+# Future Improvements
 
 • Pagination for products
 
@@ -115,7 +115,7 @@
 
 • Adding payment methods - Paypal/Visa/Mastercard
 
-# 👨‍💻 Author
+# Author
 
 • Created as a personal learning project focused on mastering Flask and building a near real-world e-commerce application.
 
