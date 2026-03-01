@@ -124,6 +124,7 @@ def register_app(app):
         return redirect(url_for('cart'))
 
     @app.route("/checkout", methods=["GET", "POST"])
+    @login_required
     def checkout():
         cart = session.get('cart', {})
         if not cart:
