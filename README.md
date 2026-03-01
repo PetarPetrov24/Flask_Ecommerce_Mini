@@ -25,16 +25,21 @@ The Shop page displays all available products along with their names, prices, an
 <img width="1919" height="910" alt="image" src="https://github.com/user-attachments/assets/dfc64859-c1f0-4ba2-a18d-0a851476719b" />
 
 The Admin Panel allows administrators to view registered users, manage orders, mark orders as completed, delete orders, and create or update products.
+Admin Dashboard:
 
 <img width="1916" height="905" alt="image" src="https://github.com/user-attachments/assets/a8204fcd-3dad-4476-be0a-0d9ba1308337" />
 
+Admin-Users page:
+
 <img width="1119" height="211" alt="image" src="https://github.com/user-attachments/assets/03962718-6da3-4d13-9f50-3a796ff8ea5b" />
 
+Admin-Orders page:
 
+<img width="1081" height="218" alt="image" src="https://github.com/user-attachments/assets/63862985-5de3-4ff3-b3c4-97f3041e03eb" />
 
+Admin-create-product page:
 
-
-
+<img width="696" height="609" alt="image" src="https://github.com/user-attachments/assets/df70419e-7e33-4d38-badc-877e2f60203d" />
 
 ## Tech Stack
 
