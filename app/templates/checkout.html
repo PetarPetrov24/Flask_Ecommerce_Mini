@@ -22,10 +22,10 @@
             </tbody>
         </table>
 
-        <h3>Total: ${{ total }}</h3>
+        <h3 class="checkout-total">Total: ${{ total }}</h3>
 
-        <form method="POST">
-            <button type="submit">Confirm Purchase</button>
+        <form method="POST" action="{{ url_for('checkout') }}">
+            <button type="submit" class="checkout-confirm-btn">Confirm Purchase</button>
         </form>
     </div>
 {% endblock %}

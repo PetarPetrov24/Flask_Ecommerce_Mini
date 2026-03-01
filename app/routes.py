@@ -127,33 +127,43 @@ def register_app(app):
     @login_required
     def checkout():
         cart = session.get('cart', {})
+
         if not cart:
             flash("Your cart is empty!", "warning")
             return redirect(url_for("cart"))
 
         total = 0
+        products = []
+
         for pid, qty in cart.items():
             product = Product.query.get(pid)
             if product:
-                total += product.price * qty
+                subtotal = product.price * qty
+                total += subtotal
+                products.append({'product': product, 'quantity': qty, 'subtotal': subtotal})
 
-        # Create Order
-        order = Order(user_id=current_user.id, total_price=total)
-        db.session.add(order)
-        db.session.commit()
+        if request.method == "POST":
+            order = Order(user_id=current_user.id, total_price=total)
+            db.session.add(order)
+            db.session.commit()
 
-        # Create OrderItems
-        for pid, qty in cart.items():
-            product = Product.query.get(pid)
-            if product:
-                order_item = OrderItem(order_id=order.id, product_id=product.id, quantity=qty, price_at_purchase=product.price)
+            for item in products:
+                order_item = OrderItem(
+                    order_id=order.id,
+                    product_id=item['product'].id,
+                    quantity=item['quantity'],
+                    price_at_purchase=item['product'].price
+                )
                 db.session.add(order_item)
 
-        db.session.commit()
+            db.session.commit()
 
-        # Clear cart
-        session.pop('cart', None)
-        return redirect(url_for("shop"))
+            session.pop('cart', None)
+            flash("Purchase completed!", "success")
+            return redirect(url_for("shop"))
+
+        return render_template("checkout.html", products=products, total=total)
+            
     
     @app.route("/api/products")
     def api_products():

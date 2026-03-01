@@ -45,9 +45,16 @@ body {
     font-weight: bold;
 }
 
-.base-header h1 {
+.base-header h1, .checkout-total {
     text-align: center;
     color: rgb(122, 230, 122);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
 }
 
 .outer-footer-scope {

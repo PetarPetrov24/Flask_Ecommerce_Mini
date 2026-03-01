@@ -6,7 +6,7 @@
     color: rgb(53, 143, 92);
 }
 
-.cart-checkout a {
+.cart-checkout a, .checkout-confirm-btn {
     padding: 0.5em 1em;
     border-radius: 0.4em;
     font-weight: bold;
@@ -14,4 +14,5 @@
     border: 1px solid rgba(138, 255, 166, 0.829);;
     background-color: rgba(138, 255, 166, 0.829);
     color: rgb(53, 143, 92);
+    cursor: pointer;
 }

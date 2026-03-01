@@ -39,7 +39,7 @@
         
         <div class="cart-checkout">
             {% if current_user.is_authenticated %}
-                <button type="submit">Confirm Purchase</button>
+                <a href="{{ url_for('checkout') }}" class="btn btn-primary">Proceed to Checkout</a>
             {% else %}
                 <p>Please <a href="{{ url_for('login') }}">log in</a> to purchase</p>
             {% endif %}
