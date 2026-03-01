@@ -6,9 +6,35 @@ Tuckify is a small e-commerce web application built with Flask and connected to 
 
 The application includes a user and administrator authentication system implemented with Flask-Login. It uses a session-based cart system to store selected products and includes checkout logic that creates orders and order items in the database. Administrator routes are protected to prevent unauthorized access and allow full product and order management. The project also includes CSRF protection with Flask-WTF, password hashing using Werkzeug, and secure configuration management through environment variables stored in a .env file.
 
+<img width="1916" height="909" alt="image" src="https://github.com/user-attachments/assets/fb653a0f-6482-4582-afd3-f54cf52b10d1" />
+
+After a user is login in:
+
+<img width="1092" height="299" alt="image" src="https://github.com/user-attachments/assets/8129aa26-b1e3-4351-b6cb-9d9629e70b9a" />
+
+After clicking proceed to checkout:
+
+<img width="1093" height="275" alt="image" src="https://github.com/user-attachments/assets/f004be17-62bd-4f7b-9fec-6ae22ed9730b" />
+
+
+
 ## Pages
 
-The Shop page displays all available products along with their names, prices, and images, and allows users to add items to their cart. The Cart page shows all selected products, calculates the total price automatically, and provides an option to complete the checkout process. The Login page allows users to authenticate and provides access to registration. The Admin Panel allows administrators to view registered users, manage orders, mark orders as completed, delete orders, and create or update products.
+The Shop page displays all available products along with their names, prices, and images, and allows users to add items to their cart. The Cart page shows all selected products, calculates the total price automatically, and provides an option to complete the checkout process. The Login page allows users to authenticate and provides access to registration.
+
+<img width="1919" height="910" alt="image" src="https://github.com/user-attachments/assets/dfc64859-c1f0-4ba2-a18d-0a851476719b" />
+
+The Admin Panel allows administrators to view registered users, manage orders, mark orders as completed, delete orders, and create or update products.
+
+<img width="1916" height="905" alt="image" src="https://github.com/user-attachments/assets/a8204fcd-3dad-4476-be0a-0d9ba1308337" />
+
+<img width="1119" height="211" alt="image" src="https://github.com/user-attachments/assets/03962718-6da3-4d13-9f50-3a796ff8ea5b" />
+
+
+
+
+
+
 
 ## Tech Stack
 
